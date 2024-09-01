@@ -33,7 +33,7 @@ Before you dive in, make sure you have the following:
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/justablog.git
+    git clone https://github.com/EngMohammedKareem/justablog.git
     cd justablog
     ```
 
@@ -63,7 +63,6 @@ Before you dive in, make sure you have the following:
 
     ```plaintext
     DB_CONNECTION=sqlite
-    DB_DATABASE=/path/to/your/database.sqlite
     ```
 
     (Create the SQLite file if it doesn’t exist.)
