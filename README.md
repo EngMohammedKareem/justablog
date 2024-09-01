@@ -2,13 +2,19 @@
 
 Welcome to **Justablog**—your ultimate hub for sharing delightful stories, adorable moments, and captivating content! 🚀✨ Built with Laravel and styled with Tailwind CSS, Justablog combines a sleek, modern design with powerful functionality. Whether you're a blogger, reader, or simply someone who enjoys cute content, you'll find something to love here!
 
+![image](https://github.com/user-attachments/assets/1b454853-593a-4e44-9050-30ee97061af3)
+![image](https://github.com/user-attachments/assets/13acfaf5-8227-41c4-ab0d-2b2d15f7801e)
+![image](https://github.com/user-attachments/assets/48a3948b-dca5-42dd-9eb8-d30da99b8ad9)
+![image](https://github.com/user-attachments/assets/914d81a1-e577-4556-8ec9-43b5bb9d350a)
+
+
 ## 🛠 Features
 
 -   **✨ User Authentication**: Seamlessly register, log in, and manage your profile.
 -   **📝 Post Creation**: Craft and publish beautiful posts with rich text formatting.
 -   **💬 Comments**: Dive into discussions with nested comments and replies.
 -   **❤️ Likes**: Show your appreciation with a simple, elegant like button.
--   **🌑 Dark Mode**: Switch to a sophisticated dark mode for a stylish reading experience.
+-   **🌑 Dark Mode**: Because i love it too :)
 -   **📱 Responsive Design**: Enjoy a layout that adapts flawlessly to any device.
 
 ## 🚀 Getting Started
@@ -98,8 +104,6 @@ This project is licensed under the MIT License. Check out the [LICENSE](LICENSE)
 
 ## 📬 Contact
 
-Got questions, feedback, or just want to say hi? Reach out to us at [your.email@example.com](mailto:your.email@example.com) or open an issue on [GitHub](https://github.com/yourusername/justablog/issues). We’d love to hear from you!
+Got questions, feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
 
 ---
-
-Feel free to customize any parts, such as the contact information or GitHub URL, to fit your project details.
