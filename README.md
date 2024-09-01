@@ -11,8 +11,8 @@ Welcome to **Justablog**—your ultimate hub for sharing delightful stories, ado
 ## 🛠 Features
 
 -   **✨ User Authentication**: Seamlessly register, log in, and manage your profile.
--   **📝 Post Creation**: Craft and publish beautiful posts with rich text formatting.
--   **💬 Comments**: Dive into discussions with nested comments and replies.
+-   **📝 Post Creation**: Craft and publish beautiful posts with ease
+-   **💬 Comments**: Express how you feel about a certain post without the hassle of following boring threads at 2 am 
 -   **❤️ Likes**: Show your appreciation with a simple, elegant like button.
 -   **🌑 Dark Mode**: Because i love it too :)
 -   **📱 Responsive Design**: Enjoy a layout that adapts flawlessly to any device.
