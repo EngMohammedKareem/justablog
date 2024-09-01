@@ -16,7 +16,7 @@
             <!-- Like Button -->
             <form action="{{ route('posts.like', $post) }}" method="POST" class="flex items-center">
                 @csrf
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full flex items-center">
                     Like
                 </button>
             </form>

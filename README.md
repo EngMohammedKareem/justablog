@@ -98,8 +98,4 @@ This project is licensed under the MIT License. Check out the [LICENSE](LICENSE)
 
 ## 📬 Contact
 
-Got questions, feedback, or just want to say hi? Reach out to us at [your.email@example.com](mailto:your.email@example.com) or open an issue on [GitHub](https://github.com/yourusername/justablog/issues). We’d love to hear from you!
-
----
-
-Feel free to customize any parts, such as the contact information or GitHub URL, to fit your project details.
+Got questions or feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!

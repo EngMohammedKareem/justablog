@@ -11,7 +11,7 @@
     <div class="flex items-center justify-center h-screen bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
         <div class="text-center p-8">
             <h1 class="text-6xl font-bold text-white mb-4">Justablog</h1>
-            <p class="text-xl text-gray-300 mb-8">Your yapping solution is finally here</p>
+            <p class="text-xl text-gray-300 mb-8">Because sharing doesn't have to be complicated</p>
             
             <div class="flex justify-center gap-6">
                 <a href="{{ route('login') }}" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300 ease-in">
