@@ -6,16 +6,20 @@ Welcome to **Justablog**—your ultimate hub for sharing delightful stories, ado
 ![image](https://github.com/user-attachments/assets/13acfaf5-8227-41c4-ab0d-2b2d15f7801e)
 ![image](https://github.com/user-attachments/assets/48a3948b-dca5-42dd-9eb8-d30da99b8ad9)
 ![image](https://github.com/user-attachments/assets/914d81a1-e577-4556-8ec9-43b5bb9d350a)
+![image](https://github.com/user-attachments/assets/523de7a9-82a6-4e0a-9a39-645558d78306)
+![image](https://github.com/user-attachments/assets/c822d76c-b28f-475c-b6ce-69fafee3207e)
 
 
 ## 🛠 Features
 
 -   **✨ User Authentication**: Seamlessly register, log in, and manage your profile.
--   **📝 Post Creation**: Craft and publish beautiful posts with ease
--   **💬 Comments**: Express how you feel about a certain post without the hassle of following boring threads at 2 am 
+-   **📝 Post Creation**: Craft and publish beautiful posts with ease.
+-   **💬 Comments**: Express how you feel about a certain post without the hassle of following boring threads at 2 am.
 -   **❤️ Likes**: Show your appreciation with a simple, elegant like button.
--   **🌑 Dark Mode**: Because i love it too :)
+-   **🌑 Dark Mode**: Because I love it too :)
 -   **📱 Responsive Design**: Enjoy a layout that adapts flawlessly to any device.
+-   **🔍 Search Functionality**: Easily find posts by title using the new search feature.
+-   **👥 Follow/Unfollow System**: Keep up with posts from users you follow and manage your connections effortlessly.
 
 ## 🚀 Getting Started
 
