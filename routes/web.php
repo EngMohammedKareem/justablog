@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +13,9 @@ Route::get('/', function () {
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('posts.comments', CommentController::class)->middleware('auth');
 Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like')->middleware('auth');
+Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow');
+Route::delete('/users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

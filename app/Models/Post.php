@@ -29,4 +29,10 @@ class Post extends Model
             get: fn() => Str::markdown($this->body)
         );
     }
+
+    // Post.php
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +14,33 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->with('user')->paginate(10);
+        // Retrieve the search term from the request
+        $searchTerm = request('search');
+
+        if ($searchTerm) {
+            // If a search term is present, retrieve posts with matching titles
+            $posts = Post::where('title', 'like', '%' . $searchTerm . '%')->get();
+        } else {
+            // If no search term, get the current user's following IDs
+            $user = Auth::user();
+            $followingIds = $user->following->pluck('id');
+
+            // Initialize a query for posts
+            $query = Post::query();
+
+            if ($followingIds->isNotEmpty()) {
+                // If the user follows others, include their posts as well
+                $query->whereIn('user_id', $followingIds);
+            }
+
+            // Also include the current user's own posts
+            $query->orWhere('user_id', $user->id);
+
+            // Fetch the posts, sorted by latest first
+            $posts = $query->latest()->get();
+        }
+
+        // Return the view with the posts
         return view('posts.index', ['posts' => $posts]);
     }
 
