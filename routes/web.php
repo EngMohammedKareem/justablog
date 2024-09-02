@@ -13,8 +13,8 @@ Route::get('/', function () {
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('posts.comments', CommentController::class)->middleware('auth');
 Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like')->middleware('auth');
-Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow');
-Route::delete('/users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow');
+Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow')->middleware('auth');
+Route::delete('/users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow')->middleware('auth');
 
 
 Route::get('/dashboard', function () {
