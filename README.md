@@ -106,11 +106,5 @@ We love contributions! To make your mark on Justablog:
 This project is licensed under the MIT License. Check out the [LICENSE](LICENSE) file for more details.
 
 ## 📬 Contact
-
-<<<<<<< HEAD
 Got questions or feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
-=======
-Got questions, feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
-
 ---
->>>>>>> 8066cdd14ae8007e59a7fae83aa031dbd29b3a45
