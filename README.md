@@ -107,4 +107,3 @@ This project is licensed under the MIT License. Check out the [LICENSE](LICENSE)
 
 ## 📬 Contact
 Got questions or feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
----
