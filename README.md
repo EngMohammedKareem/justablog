@@ -2,14 +2,24 @@
 
 Welcome to **Justablog**—your ultimate hub for sharing delightful stories, adorable moments, and captivating content! 🚀✨ Built with Laravel and styled with Tailwind CSS, Justablog combines a sleek, modern design with powerful functionality. Whether you're a blogger, reader, or simply someone who enjoys cute content, you'll find something to love here!
 
+![image](https://github.com/user-attachments/assets/1b454853-593a-4e44-9050-30ee97061af3)
+![image](https://github.com/user-attachments/assets/13acfaf5-8227-41c4-ab0d-2b2d15f7801e)
+![image](https://github.com/user-attachments/assets/48a3948b-dca5-42dd-9eb8-d30da99b8ad9)
+![image](https://github.com/user-attachments/assets/914d81a1-e577-4556-8ec9-43b5bb9d350a)
+![image](https://github.com/user-attachments/assets/523de7a9-82a6-4e0a-9a39-645558d78306)
+![image](https://github.com/user-attachments/assets/c822d76c-b28f-475c-b6ce-69fafee3207e)
+
+
 ## 🛠 Features
 
 -   **✨ User Authentication**: Seamlessly register, log in, and manage your profile.
--   **📝 Post Creation**: Craft and publish beautiful posts with rich text formatting.
--   **💬 Comments**: Dive into discussions with nested comments and replies.
+-   **📝 Post Creation**: Craft and publish beautiful posts with ease.
+-   **💬 Comments**: Express how you feel about a certain post without the hassle of following boring threads at 2 am.
 -   **❤️ Likes**: Show your appreciation with a simple, elegant like button.
--   **🌑 Dark Mode**: Switch to a sophisticated dark mode for a stylish reading experience.
+-   **🌑 Dark Mode**: Because I love it too :)
 -   **📱 Responsive Design**: Enjoy a layout that adapts flawlessly to any device.
+-   **🔍 Search Functionality**: Easily find posts by title using the new search feature.
+-   **👥 Follow/Unfollow System**: Keep up with posts from users you follow and manage your connections effortlessly.
 
 ## 🚀 Getting Started
 
@@ -27,7 +37,7 @@ Before you dive in, make sure you have the following:
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/justablog.git
+    git clone https://github.com/EngMohammedKareem/justablog.git
     cd justablog
     ```
 
@@ -57,7 +67,6 @@ Before you dive in, make sure you have the following:
 
     ```plaintext
     DB_CONNECTION=sqlite
-    DB_DATABASE=/path/to/your/database.sqlite
     ```
 
     (Create the SQLite file if it doesn’t exist.)
@@ -98,4 +107,10 @@ This project is licensed under the MIT License. Check out the [LICENSE](LICENSE)
 
 ## 📬 Contact
 
+<<<<<<< HEAD
 Got questions or feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
+=======
+Got questions, feedback? Open an issue on [GitHub](https://github.com/yourusername/justablog/issues). I’d love to hear from you!
+
+---
+>>>>>>> 8066cdd14ae8007e59a7fae83aa031dbd29b3a45
