@@ -17,6 +17,15 @@
         </form>
     </div>
     @foreach($posts as $post)
-        <x-post-card :post="$post"/>
+        @if(auth()->user()->id === $post->user_id)
+            <x-op-post-card :post="$post"/>
+        @else
+            <x-post-card :post="$post"/>
+        @endif
     @endforeach
+    @if($posts->hasPages())
+    <div class="m-3">
+        {{ $posts->links() }}
+    </div>
+@endif 
 </x-app-layout>

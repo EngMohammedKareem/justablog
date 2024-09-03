@@ -9,8 +9,11 @@
     </div>
 
     <div class="flex items-center justify-center space-x-3 my-3">
+        <a href="{{ route('posts.index') }}">
+            <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg">Back To Posts</button>
+        </a>
         @can('delete', $post)
-        <form action="{{ route('posts.destroy', $post) }}" method="POST">
+        <form action="{{ route('posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
             @csrf
             @method('DELETE')
             <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg" type="submit">Delete</button>
@@ -21,9 +24,6 @@
             <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg">Edit</button>
         </a>
         @endcan
-        <a href="{{ route('posts.index') }}">
-            <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg">Back</button>
-        </a>
     </div>
     <!-- Comments Section -->
     <div class="mb-8">

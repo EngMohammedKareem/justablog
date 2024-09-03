@@ -19,7 +19,7 @@ class PostController extends Controller
 
         if ($searchTerm) {
             // If a search term is present, retrieve posts with matching titles
-            $posts = Post::where('title', 'like', '%' . $searchTerm . '%')->get();
+            $posts = Post::where('title', 'like', '%' . $searchTerm . '%')->latest()->paginate(5);
         } else {
             // If no search term, get the current user's following IDs
             $user = Auth::user();
@@ -37,7 +37,7 @@ class PostController extends Controller
             $query->orWhere('user_id', $user->id);
 
             // Fetch the posts, sorted by latest first
-            $posts = $query->latest()->get();
+            $posts = $query->latest()->paginate(5);
         }
 
         // Return the view with the posts

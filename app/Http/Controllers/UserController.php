@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function show(User $user)
+    {
+        return view('users.show', ['user' => $user, 'posts' => $user->posts()->with('user')->latest()->get()]);
+    }
     public function follow(User $user)
     {
         if (Auth::user()->id === $user->id) {
