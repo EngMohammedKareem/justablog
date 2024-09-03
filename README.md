@@ -11,7 +11,11 @@ I'm extremely proud and excited to introduce two fantastic new features that wil
 ![image](https://cdn.discordapp.com/attachments/1251877367803150371/1280484448302927912/image.png?ex=66d83f92&is=66d6ee12&hm=c545cd6c64868b06cc8159ff2a3647d63b783904f2173288f4558dcf654e5bc6&)
 ![image](https://cdn.discordapp.com/attachments/1251877367803150371/1280484448567165081/image.png?ex=66d83f92&is=66d6ee12&hm=d62c9068500187888a93f46232295abebf1634a218e5974ae9d6292e62de9918&)
 
----
+![image](https://cdn.discordapp.com/attachments/960898967116341251/1280499832401825812/image.png?ex=66d84de6&is=66d6fc66&hm=f1c5b260e64688df08bcccbc15c3198f309bdf3234504d3e3c8755bff197e265&)
+
+![image](https://cdn.discordapp.com/attachments/960898967116341251/1280499991202500648/image.png?ex=66d84e0c&is=66d6fc8c&hm=e4adf0055b6dabd3b6fee3e36abc3f24d9adac8940e1ff5a4710eeccf10b4766&)
+
+![image](https://cdn.discordapp.com/attachments/960898967116341251/1280500369348362240/image.png?ex=66d84e66&is=66d6fce6&hm=1c18a3f7ff850f0dc58555523643e5c233fd6adf7dba4c143e7cf20195024396&)
 
 But i need your help! 🙌
 
