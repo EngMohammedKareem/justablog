@@ -1,4 +1,4 @@
-🚀 Major Feature Update: User Profiles & Follow/Unfollow 🚀
+## 🚀 Major Feature Update: User Profiles & Follow/Unfollow 🚀
 
 I'm extremely proud and excited to introduce two fantastic new features that will take your experience to the next level! 🎉✨
 
