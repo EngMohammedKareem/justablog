@@ -34,7 +34,7 @@ class CommentController extends Controller
     public function store(Request $request, Post $post)
     {
         $request->validate([
-            'body' => 'required',
+            'body' => ['required', 'string', 'max:255'],
         ]);
 
         $post->comments()->create([
@@ -74,7 +74,7 @@ class CommentController extends Controller
         $comment->update([
             'body' => $request->body
         ]);
-        return redirect()->route('posts.show', $post)->withFragment('comments');
+        return redirect()->route('posts.show', $post)->withFragment('comments')->with("comment_updated", "Comment updated! successfully");
     }
 
     /**
@@ -84,6 +84,6 @@ class CommentController extends Controller
     {
         Gate::authorize('delete', $comment);
         $comment->delete();
-        return redirect()->route('posts.show', $post)->withFragment('comments');
+        return redirect()->route('posts.show', $post)->withFragment('comments')->with("comment_deleted", "Comment deleted! successfully");
     }
 }

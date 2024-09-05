@@ -1,11 +1,10 @@
 <x-app-layout>
     <div class="m-3">
-        <a href="{{ route('posts.create') }}" class="inline-block">
-            <button class="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50">
-                Create Post
-            </button>
-        </a>
-        
+        @if (session('post_deleted'))
+            <div class="fixed top-4 left-4 bg-red-500 text-white p-3 rounded-lg shadow-lg flash_message">
+                {{ session('post_deleted') }}
+            </div>
+        @endif
     </div>
       <!-- Search Form -->
       <div class="m-3">
@@ -28,4 +27,12 @@
         {{ $posts->links() }}
     </div>
 @endif 
+<script>
+    const flashMessage = document.querySelector('.flash_message');
+    if (flashMessage) {
+        setTimeout(() => {
+            flashMessage.remove();
+        }, 3000);
+    }
+</script>
 </x-app-layout>

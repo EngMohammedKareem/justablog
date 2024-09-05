@@ -14,28 +14,28 @@
 
            <div class="text-center">
                <!-- Display the name of the user being viewed and action button -->
-               <div class="flex justify-between items-center mb-4 gap-9">
+               <div class="flex justify-center items-center mb-4 gap-9">
                    <h1 class="text-4xl font-bold">{{ $user->name }}</h1>
-                   @if (Auth::user()->following->contains($post->user))
-                       <!-- Unfollow Button -->
-                       <form action="{{ route('users.unfollow', $post->user) }}" method="POST">
-                           @csrf
-                           @method('DELETE')
-                           <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full">
-                               Unfollow
-                           </button>
-                       </form>
-                   @else
-                       <!-- Follow Button -->
-                       <form action="{{ route('users.follow', $post->user) }}" method="POST">
-                           @csrf
-                           <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full">
-                               Follow
-                           </button>
-                       </form>
-                   @endif
+                   <span class="text-sm text-gray-400 text-bold">&#64;{{ $user->username }}</span>
                </div>
-
+               <div class="flex justify-center gap-3 mb-3">
+                @if(Auth::user()->following->contains($user))
+                    <form action="{{ route('users.unfollow', $user) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full flex items-center">
+                            Unfollow
+                        </button>
+                    </form>
+                @else
+                    <form action="{{ route('users.follow', $user) }}" method="post">
+                        @csrf
+                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full flex items-center">
+                            Follow
+                        </button>
+                    </form>
+                @endif
+               </div>
                <p class="text-lg mb-4">{{ $user->bio ?? 'No bio available' }}</p>
 
                <!-- Statistics -->
@@ -51,6 +51,9 @@
 
        <!-- Posts List -->
        <div class="flex flex-col gap-4 max-w-4xl mx-auto">
+           @if($user->posts->count() === 0) 
+               <p class="text-center">🌟 No posts yet! 🌟</p>
+           @endif
            @foreach($posts as $post)
                <x-op-post-card :post="$post" />
            @endforeach

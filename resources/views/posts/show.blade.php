@@ -1,4 +1,19 @@
 <x-app-layout>
+    @if (session('comment_updated'))
+    <div class="fixed top-4 left-4 bg-green-500 text-white font-bold p-3 rounded-lg shadow-lg flash_message">
+        {{ session('comment_updated') }}
+    </div>
+@endif
+@if (session('post_updated'))
+<div class="fixed top-4 left-4 bg-green-500 text-white font-bold p-3 rounded-lg shadow-lg flash_message">
+    {{ session('post_updated') }}
+</div>
+@endif
+@if (session('comment_deleted'))
+    <div class="fixed top-4 left-4 bg-red-500 text-white font-bold p-3 rounded-lg shadow-lg flash_message">
+        {{ session('comment_deleted') }}
+    </div>
+@endif
 <div class="container mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
     
     <!-- Post Section -->
@@ -39,7 +54,7 @@
                     </a>
                     @endcan
                      @can('delete', $comment)
-                    <form action="{{ route('posts.comments.destroy',[$post, $comment]) }}" method="post">
+                    <form action="{{ route('posts.comments.destroy',[$post, $comment]) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this comment?')">
                         @csrf
                         @method('DELETE')
                         <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg" type="submit">Delete</button>
@@ -71,4 +86,12 @@
         </form>
     </div>
 </div>
+<script>
+    const flashMessage = document.querySelector('.flash_message');
+    if (flashMessage) {
+        setTimeout(() => {
+            flashMessage.remove();
+        }, 3000);
+    }
+</script>
 </x-app-layout>

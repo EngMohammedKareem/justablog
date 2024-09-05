@@ -2,7 +2,7 @@
 
 <div class="flex flex-col justify-between items-start p-6 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
     <a href="{{ route('posts.show', $post) }}">
-            <h1 class="text-3xl font-bold text-white mb-2">{{ $post->title }}</h1>
+            <h1 class="text-3xl font-bold text-white mb-2">{{ Str::limit($post->title, 40, '...') }}</h1>
     </a>
 
     <p class="text-md text-gray-200 mb-4">{{ Str::limit($post->body, 150, '...') }}</p>

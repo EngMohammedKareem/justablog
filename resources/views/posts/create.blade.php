@@ -6,7 +6,7 @@
         @csrf
         <div class="mb-4">
             <label for="title" class="block text-lg font-medium mb-2">Title</label>
-            <input type="text" id="title" name="title" value="{{ old('title') }}" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Post Title">
+            <input type="text" id="title" name="title" value="{{ old('title') }}" class="w-full p-3 bg-gray-700 border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Post Title">
             @error('title')
                 <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
             @enderror
@@ -14,7 +14,7 @@
 
         <div class="mb-4">
             <label for="body" class="block text-lg font-medium mb-2">Body</label>
-            <textarea id="body" name="body" rows="6" class="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Post Content">{{ old('body') }}</textarea>
+            <textarea id="body" name="body" rows="6" class="w-full p-3 bg-gray-700 border rounded-lg text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Post Content">{{ old('body') }}</textarea>
             @error('body')
                 <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
             @enderror

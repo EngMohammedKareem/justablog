@@ -69,7 +69,7 @@ class PostController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('post_created', 'Post created! successfully');
     }
 
     /**
@@ -102,7 +102,7 @@ class PostController extends Controller
             'title' => $request->title,
             'body' => $request->body
         ]);
-        return redirect()->route('posts.show', $post);
+        return redirect()->route('posts.show', $post)->with('post_updated', 'Post updated! successfully');
     }
 
     /**
@@ -112,12 +112,12 @@ class PostController extends Controller
     {
         Gate::authorize('delete', $post);
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('post_deleted', 'Post deleted! successfully');
     }
 
     public function like(Post $post)
     {
         $post->increment('likes');
-        return redirect()->route('posts.index');
+        return back();
     }
 }

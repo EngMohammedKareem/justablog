@@ -1,3 +1,31 @@
+## 🎉 New Features: search users by username + flash messages + new navbar look + improved menu for mobile users
+
+I'm very excited to announce that my small side project is now shaping up very well and today i implemented new features including:
+
+-   finding users by usernames: yes the feature is finally here and now you can connect with other people by searching their username on Justablog
+-   added some flash messages for posts / commeents events like updating and deleting just cause it's a nice feature to have
+-   since removing the post button from the home page i added it to the navbar and the mobile usrrs responsive menu for better user experience ( same with the users search feature )
+-   slightly improved profiles now
+-   fixed a seriously annoying bug that was preventing the search form from functioning properly
+
+![image](https://media.discordapp.net/attachments/960898967116341251/1281348530698715156/image.png?ex=66db6450&is=66da12d0&hm=ca746a013c451e3d4118176f56f5b72428eedd26925e872768bc822c07097e6d&=&format=webp&quality=lossless&width=1393&height=613)
+
+![](https://media.discordapp.net/attachments/960898967116341251/1281386750010200156/image.png?ex=66db87e8&is=66da3668&hm=fa79f237e7906e91e2902bab3e10136242b17b25034fdf4d40dbbb3323d1dda0&=&format=webp&quality=lossless&width=1393&height=298)
+
+![](https://media.discordapp.net/attachments/960898967116341251/1281387079514980455/image.png?ex=66db8836&is=66da36b6&hm=ccdd475d1f973ae512285c044937a72e1ec2ddae0d9687a2a743dcd1a611fb67&=&format=webp&quality=lossless&width=974&height=711)
+
+🚀 Key Benefits
+
+1. Improved User Discovery: Easily find and connect with other users by searching for their usernames.
+2. Enhanced Usability: Simple and intuitive search interface that enhances the user experience.
+3. Faster Connections: Quickly locate users without having to navigate through posts ( terrible experience i know ).
+
+My biggest hope is that someone is watching this project grow now and be inspired to create their own projects and enjoy the process
+
+**contributions are always welcome as they help me learn more laravel**
+
+---
+
 ## 🚀 Major Feature Update: User Profiles & Follow/Unfollow 🚀
 
 I'm extremely proud and excited to introduce two fantastic new features that will take your experience to the next level! 🎉✨

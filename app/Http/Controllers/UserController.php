@@ -30,4 +30,15 @@ class UserController extends Controller
         Auth::user()->following()->detach($user->id);
         return redirect()->back();
     }
+
+    public function search(Request $request)
+    {
+        return view('users.search');
+    }
+
+    public function find()
+    {
+        $users = User::where('username', 'like', '%' . request('username') . '%')->get();
+        return view('users.search', ['users' => $users]);
+    }
 }

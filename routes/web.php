@@ -13,6 +13,8 @@ Route::get('/', function () {
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('posts.comments', CommentController::class)->middleware('auth');
 Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like')->middleware('auth');
+Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+Route::get('/users/search/results', [UserController::class, 'find'])->name('users.find');
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('users.follow')->middleware('auth');
 Route::delete('/users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow')->middleware('auth');

@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if(session('status'))
+    <div class="fixed top-4 left-4 bg-green-500 text-white p-3 rounded-lg shadow-lg flash_message">
+        {{ session('status') }}
+    </div>
+    @endif
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Profile') }}
