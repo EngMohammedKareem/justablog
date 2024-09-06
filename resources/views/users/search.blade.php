@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="m-3">
-        <form method="GET" action="{{ route('users.find') }}" class="flex items-center">
+        <form method="GET" action="{{ route('users.search') }}" class="flex items-center">
             @csrf
             <input type="text" name="username" placeholder="Search by username..." class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
             <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">

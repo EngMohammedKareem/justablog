@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -31,6 +32,16 @@ class ProfileController extends Controller
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+
+        if ($request->has('profile_picture')) {
+            if (Auth::user()->profile_picture) {
+                Storage::disk('public')->delete(Auth::user()->profile_picture);
+            }
+
+            // Store new profile image
+            $path = $request->file('profile_picture')->store('profile_images', 'public');
+            Auth::user()->profile_picture = $path;
         }
 
         $request->user()->save();

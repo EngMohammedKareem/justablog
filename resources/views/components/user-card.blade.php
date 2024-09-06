@@ -5,7 +5,7 @@
         <a href="{{ Auth::user()->id === $user->id ? route('dashboard') : route('users.show', $user) }}" class="">
             <h1 class="text-3xl font-bold text-white mb-2">{{ $user->name }}</h1>
         </a>
-        <p class="text-md text-gray-300 mb-2">{{ $user->email }}</p>
+        <p class="text-md text-gray-300 mb-2">&#64;{{ $user->username }}</p>
         @auth
             @if (Auth::user()->following->contains($user))
                 <!-- Unfollow Button -->

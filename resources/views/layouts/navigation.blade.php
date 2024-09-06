@@ -19,7 +19,7 @@
                         {{ __('FIND PEOPLE') }}
                     </x-nav-link>
                     <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                        {{ __('CREATE A POST') }}
+                        {{ __('POST NOW') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
-                            <img src="https://scontent.fkik8-2.fna.fbcdn.net/v/t39.30808-6/348557727_211779438285972_638000292256965706_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=y6fdm418IJYQ7kNvgGDQVYz&_nc_ht=scontent.fkik8-2.fna&oh=00_AYDI8PS8rhrkhPvmaXk1dSR2flsIbDHuqc5i5rtbm25ktA&oe=66DCBAF1" alt="" class="ms-2 w-8 h-8 rounded-full">
+                            <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'}}" alt="" class="ms-2 w-8 h-8 rounded-full">
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -83,7 +83,7 @@
                 {{ __('Feed') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                {{ __('Create A Post') }}
+                {{ __('POST NOW') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('users.search')" :active="request()->routeIs('users.search')">
                 {{ __('Find People') }}

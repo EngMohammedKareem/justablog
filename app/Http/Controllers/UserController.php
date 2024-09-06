@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -33,12 +34,22 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
+        if (request('username')) {
+            $users = User::where('username', 'like', '%' . request('username') . '%')->get();
+            return view('users.search', ['users' => $users]);
+        }
         return view('users.search');
     }
 
-    public function find()
+    public function followers(User $user)
     {
-        $users = User::where('username', 'like', '%' . request('username') . '%')->get();
-        return view('users.search', ['users' => $users]);
+        $followers =  $user->follower()->get();
+        return view('users.followers', ['followers' => $followers, 'user' => $user]);
+    }
+
+    public function following(User $user)
+    {
+        $following =  $user->following()->get();
+        return view('users.following', ['following' => $following, 'user' => $user]);
     }
 }

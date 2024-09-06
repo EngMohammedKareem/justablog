@@ -31,4 +31,10 @@
             </div>
         </div>
     </div>
+    <script>
+        const flashMessage = document.querySelector('.flash_message');
+        setTimeout(() => {
+            flashMessage.remove();
+        }, 3000);
+    </script>
 </x-app-layout>
