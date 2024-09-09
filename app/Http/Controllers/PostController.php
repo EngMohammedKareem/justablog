@@ -7,6 +7,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\URL;
 
 class PostController extends Controller
 {
@@ -157,6 +159,27 @@ class PostController extends Controller
         }
 
         // Redirect back with a success message
+        return redirect()->back();
+    }
+
+    public function report(Post $post)
+    {
+        $embed = ['embeds' => [[
+            'title' => $post->title,
+            'description' => $post->body,
+            'color' => 16711680,
+            'url' => URL::route('posts.show', $post->id),
+            'footer' => [
+                'text' => 'Reported by ' . Auth::user()->name . "at " . now()
+            ]
+        ]]];
+
+        $resp = Http::post(env('DISCORD_WEBHOOK'), $embed);
+        if ($resp->successful()) {
+            return redirect()->back()->with('post_reported', 'Post reported successfully!');
+        } else {
+            return redirect()->back()->with('post_report_failed', 'Post report failed!');
+        }
         return redirect()->back();
     }
 }

@@ -14,6 +14,18 @@
         {{ session('comment_deleted') }}
     </div>
 @endif
+
+@if (session('post_report_failed'))
+    <div class="fixed top-4 left-4 bg-red-500 text-white font-bold p-3 rounded-lg shadow-lg flash_message">
+        {{ session('post_report_failed') }}
+    </div>
+@endif
+@if (session('post_reported'))
+<div class="fixed top-4 left-4 bg-green-500 text-white font-bold p-3 rounded-lg shadow-lg flash_message">
+    {{ session('post_reported') }}
+</div>
+@endif
+
 <div class="container mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
     
     <!-- Post Section -->
@@ -52,7 +64,7 @@
         <form action="{{ route('posts.destroy', $post) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
             @csrf
             @method('DELETE')
-            <button type="submit" class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+            <button type="submit" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
                 <svg class="w-6 h-6 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24">
                     <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
                 </svg>
@@ -60,14 +72,23 @@
             </button>
         </form>
         @endcan
+        <form action="{{ route('posts.report', $post) }}" method="post">
+        @csrf
+        <button type="submit" class="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M13.09 3.294c1.924.95 3.422 1.69 5.472.692a1 1 0 0 1 1.438.9v9.54a1 1 0 0 1-.562.9c-2.981 1.45-5.382.24-7.25-.701a38.739 38.739 0 0 0-.622-.31c-1.033-.497-1.887-.812-2.756-.77-.76.036-1.672.357-2.81 1.396V21a1 1 0 1 1-2 0V4.971a1 1 0 0 1 .297-.71c1.522-1.506 2.967-2.185 4.417-2.255 1.407-.068 2.653.453 3.72.967.225.108.443.216.655.32Z"/>
+              </svg>
+            Report
+        </button>
+        </form>
     </div>
     
     <!-- Comments Section -->
     <div class="mb-8">
         <h2 class="text-3xl font-semibold mb-4">Comments ({{ $post->comments->count() }})</h2>
         @forelse($comments as $comment)
-            <div class="bg-gray-800 p-4 rounded-lg shadow-md mb-4">
-                <p class="text-md text-gray-300"> {!! $comment->html !!} </p>
+            <div class="flex flex-col justify-center bg-gray-800 p-4 rounded-lg shadow-md mb-4">
+                <p class="text-md text-gray-300">{{ $comment->body }}</p>
                 <p class="text-sm text-gray-500 mt-2">— {{ $comment->user->name }} on {{ $comment->created_at->format('F j, Y') }}</p>
                 <div class="flex items-center justify-start space-x-3 m-3">
                     @can('update', $comment)
