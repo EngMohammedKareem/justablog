@@ -3,6 +3,7 @@
        $posts = auth()->user()->posts()->latest()->get();
        $followersCount = auth()->user()->follower ? auth()->user()->follower()->count() : 0;
        $followingCount = auth()->user()->following ? auth()->user()->following()->count() : 0;
+       $hasSpecialBadge = auth()->user()->hasSpecialPowers();
     @endphp
  
     <div class="bg-gray-900 text-white py-12 px-6">
@@ -10,12 +11,16 @@
           <!-- Profile Header -->
           <div class="bg-gray-800 rounded-full mb-6">
             <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'}}" alt="Profile Picture" class="w-32 h-32 rounded-full object-cover">
-
           </div>
           <div class="text-center">
             <div class="flex justify-center items-center mb-4 gap-9">
                <h1 class="text-4xl font-bold">{{ Auth()->user()->name }}</h1>
                <span class="text-sm text-gray-400 font-bold">&#64;{{ Auth::user()->username }}</span>
+               @if($hasSpecialBadge)
+               <span class="bg-red-100 text-red-800 text-sm font-bold px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 ml-4">
+                   ADMIN
+               </span>
+           @endif
            </div>             
            <p class="text-lg mb-4">{{ auth()->user()->bio ?? 'No bio available' }}</p>
              <div class="flex flex-col justify-center gap-3 mb-8">

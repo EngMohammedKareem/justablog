@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Like;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -68,5 +70,15 @@ class User extends Authenticatable
     public function follower(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'follows', 'following_id', 'follower_id');
+    }
+
+    public function hasSpecialPowers()
+    {
+        return $this->email === "moo@me.com";
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
     }
 }

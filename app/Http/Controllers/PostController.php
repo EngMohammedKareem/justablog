@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
-use League\CommonMark\CommonMarkConverter;
 
 class PostController extends Controller
 {
@@ -18,28 +18,28 @@ class PostController extends Controller
         // Retrieve the search term from the request
         $searchTerm = request('search');
 
+        // Initialize query for posts
+        $query = Post::query()->latest()->with(['user', 'likes', 'comments']);
+
         if ($searchTerm) {
-            // If a search term is present, retrieve posts with matching titles
-            $posts = Post::where('title', 'like', '%' . $searchTerm . '%')->latest()->with('user')->paginate(5);
+            // Apply search filter
+            $query->where('title', 'like', '%' . $searchTerm . '%');
         } else {
-            // If no search term, get the current user's following IDs
+            // Get the current user's following IDs
             $user = Auth::user();
             $followingIds = $user->following->pluck('id');
 
-            // Initialize a query for posts
-            $query = Post::query();
-
             if ($followingIds->isNotEmpty()) {
-                // If the user follows others, include their posts as well
+                // Include posts from users the current user follows
                 $query->whereIn('user_id', $followingIds);
             }
 
-            // Also include the current user's own posts
+            // Include the current user's own posts
             $query->orWhere('user_id', $user->id);
-
-            // Fetch the posts, sorted by latest first
-            $posts = $query->latest()->with('user')->paginate(5);
         }
+
+        // Fetch posts with pagination
+        $posts = $query->paginate(5);
 
         // Return the view with the posts
         return view('posts.index', ['posts' => $posts]);
@@ -50,7 +50,6 @@ class PostController extends Controller
      */
     public function create()
     {
-
         return view('posts.create');
     }
 
@@ -59,18 +58,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
+        // Validate request data
         $request->validate([
-            'title' => 'required',
-            'body' => 'required',
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
         ]);
 
-        $request->user()->posts()->create([
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
+        // Create new post
+        $request->user()->posts()->create($request->only('title', 'body'));
 
-        return redirect()->route('posts.index')->with('post_created', 'Post created! successfully');
+        // Redirect with success message
+        return redirect()->route('posts.index')->with('post_created', 'Post created successfully!');
     }
 
     /**
@@ -78,9 +76,16 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        // Load relationships eagerly
+        $post = $post->load(['user', 'likes', 'comments.user']);
+
+        // Paginate comments
+        $comments = $post->comments()->with('user')->latest()->paginate(5);
+
+        // Return the view with the post and comments
         return view('posts.show', [
             'post' => $post,
-            'comments' => $post->comments()->with('user')->latest()->paginate(5)
+            'comments' => $comments
         ]);
     }
 
@@ -89,7 +94,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        // Authorize user
         Gate::authorize('update', $post);
+
+        // Return the view with the post
         return view('posts.edit', ['post' => $post]);
     }
 
@@ -98,12 +106,20 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // Authorize user
         Gate::authorize('update', $post);
-        $post->update([
-            'title' => $request->title,
-            'body' => $request->body
+
+        // Validate request data
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
         ]);
-        return redirect()->route('posts.show', $post)->with('post_updated', 'Post updated! successfully');
+
+        // Update the post
+        $post->update($request->only('title', 'body'));
+
+        // Redirect with success message
+        return redirect()->route('posts.show', $post)->with('post_updated', 'Post updated successfully!');
     }
 
     /**
@@ -111,14 +127,36 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        // Authorize user
         Gate::authorize('delete', $post);
+
+        // Delete the post
         $post->delete();
-        return redirect()->route('posts.index')->with('post_deleted', 'Post deleted! successfully');
+
+        // Redirect with success message
+        return redirect()->route('posts.index')->with('post_deleted', 'Post deleted successfully!');
     }
 
+    /**
+     * Toggle like status of a post.
+     */
     public function like(Post $post)
     {
-        $post->increment('likes');
-        return back();
+        $userId = Auth::user()->id;
+        $like = Like::where('post_id', $post->id)->where('user_id', $userId)->first();
+
+        if ($like) {
+            // If like exists, delete it
+            $like->delete();
+        } else {
+            // If like does not exist, create it
+            Like::create([
+                'post_id' => $post->id,
+                'user_id' => $userId
+            ]);
+        }
+
+        // Redirect back with a success message
+        return redirect()->back();
     }
 }

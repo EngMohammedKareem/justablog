@@ -2,6 +2,7 @@
    @php
        $followersCount = $user->follower ? $user->follower()->count() : 0;
        $followingCount = $user->following ? $user->following()->count() : 0;
+       $hasSpecialBadge = $user->hasSpecialPowers();
    @endphp
 
    <div class="bg-gray-900 text-white py-12 px-6">
@@ -17,6 +18,11 @@
                <div class="flex justify-center items-center mb-4 gap-9">
                    <h1 class="text-4xl font-bold">{{ $user->name }}</h1>
                    <span class="text-sm text-gray-400 text-bold">&#64;{{ $user->username }}</span>
+                   @if($hasSpecialBadge)
+                   <span class="bg-red-100 text-red-800 text-sm font-bold px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 ml-4">
+                       ADMIN
+                   </span>
+               @endif
                </div>
                <div class="flex justify-center gap-3 mb-3">
                 @if(Auth::user()->following->contains($user))

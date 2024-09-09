@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
 
     public function show(User $user)
     {
-        return view('users.show', ['user' => $user, 'posts' => $user->posts()->with('user')->latest()->get()]);
+        return view('users.show', ['user' => $user, 'posts' => $user->posts()->with(['user', 'likes'])->latest()->get()]);
     }
     public function follow(User $user)
     {

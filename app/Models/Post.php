@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
@@ -25,8 +24,8 @@ class Post extends Model
 
 
     // Post.php
-    public function likedByUsers()
+    public function likes(): HasMany
     {
-        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+        return $this->hasMany(Like::class);
     }
 }

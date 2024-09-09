@@ -14,11 +14,11 @@
             <p class="text-xl text-gray-300 mb-8">Because sharing doesn't have to be complicated</p>
             
             <div class="flex justify-center gap-6">
-                <a href="{{ route('login') }}" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:from-blue-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300 ease-in">
-                    Login
+                <a href="{{ route('login') }}">
+                    <button type="button" class="px-6 py-3.5 text-base font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
                 </a>
-                <a href="{{ route('register') }}" class="px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-semibold rounded-lg shadow-lg hover:from-teal-500 hover:to-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400 transition-colors duration-300 ease-in">
-                    Register
+                <a href="{{ route('register') }}">
+                    <button type="button" class="px-6 py-3.5 text-base font-bold text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</button>
                 </a>
             </div>
         </div>
