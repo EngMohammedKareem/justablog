@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -83,7 +83,7 @@
                 {{ __('Feed') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                {{ __('POST NOW') }}
+                {{ __('Post Now') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('users.search')" :active="request()->routeIs('users.search')">
                 {{ __('Find People') }}

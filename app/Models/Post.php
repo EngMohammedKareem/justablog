@@ -23,12 +23,6 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function html(): Attribute
-    {
-        return new Attribute(
-            get: fn() => Str::markdown($this->body)
-        );
-    }
 
     // Post.php
     public function likedByUsers()
