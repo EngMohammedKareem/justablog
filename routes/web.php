@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReplyController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +13,7 @@ Route::get('/', function () {
 
 Route::resource('posts', PostController::class)->middleware('auth');
 Route::resource('posts.comments', CommentController::class)->middleware('auth');
+Route::resource('posts.comments.replies', ReplyController::class)->middleware('auth');
 Route::post('/posts/{post}/like', [PostController::class, 'like'])->name('posts.like')->middleware('auth');
 Route::post('/posts/{post}/report', [PostController::class, 'report'])->name('posts.report')->middleware('auth');
 Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
