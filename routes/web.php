@@ -6,6 +6,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReplyController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +25,24 @@ Route::post('/users/{user}/follow', [UserController::class, 'follow'])->name('us
 Route::delete('/users/{user}/unfollow', [UserController::class, 'unfollow'])->name('users.unfollow')->middleware('auth');
 Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');
 Route::get('/users/{user}/following', [UserController::class, 'following'])->name('users.following');
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+})->name('github.redirect');
+
+Route::get('/auth/callback', function () {
+    $githubuser = Socialite::driver('github')->user();
+    $user = User::updateOrCreate([
+        'github_id' => $githubuser->id
+    ], [
+        'name' => $githubuser->name,
+        'email' => $githubuser->email,
+        'github_token' => $githubuser->token,
+        'github_refresh_token' => $githubuser->refreshToken,
+    ]);
+
+    Auth::login($user);
+    return redirect('/dashboard');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
