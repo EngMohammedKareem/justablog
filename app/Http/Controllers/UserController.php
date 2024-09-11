@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function show(User $user)
+    public function show($username)
     {
+        $user = User::where('username', $username)->firstorFail();
         return view('users.show', ['user' => $user, 'posts' => $user->posts()->with(['user', 'likes'])->latest()->get()]);
     }
-    public function follow(User $user)
+    public function follow($username)
     {
+        $user = User::where('username', $username)->firstorFail();
         if (Auth::user()->id === $user->id) {
             return redirect()->back();
         }
@@ -22,8 +24,9 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function unfollow(User $user)
+    public function unfollow($username)
     {
+        $user = User::where('username', $username)->firstorFail();
         if (Auth::user()->id === $user->id) {
             return redirect()->back();
         }

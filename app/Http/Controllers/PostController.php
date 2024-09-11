@@ -42,7 +42,6 @@ class PostController extends Controller
 
         // Fetch posts with pagination
         $posts = $query->paginate(5);
-
         // Return the view with the posts
         return view('posts.index', ['posts' => $posts]);
     }

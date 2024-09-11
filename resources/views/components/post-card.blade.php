@@ -2,7 +2,7 @@
 
 <div class="relative flex flex-col justify-between items-start p-6 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
     <!-- Profile Picture in the Top Right Corner -->
-    <a href="{{ route('users.show', $post->user) }}" class="absolute top-4 right-4">
+    <a href="{{ route('users.show', $post->user->username) }}" class="absolute top-4 right-4">
         <img src="{{ $post->user->profile_picture ? asset('storage/' . $post->user->profile_picture) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" 
              alt="Profile Picture" 
              class="w-16 h-16 rounded-full">

@@ -25,8 +25,9 @@
                @endif
                </div>
                <div class="flex justify-center gap-3 mb-3">
+                @auth
                 @if(Auth::user()->following->contains($user))
-                    <form action="{{ route('users.unfollow', $user) }}" method="post">
+                    <form action="{{ route('users.unfollow', $user->username) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded-full flex items-center">
@@ -34,13 +35,14 @@
                         </button>
                     </form>
                 @else
-                    <form action="{{ route('users.follow', $user) }}" method="post">
+                    <form action="{{ route('users.follow', $user->username) }}" method="post">
                         @csrf
                         <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full flex items-center">
                             Follow
                         </button>
                     </form>
                 @endif
+                @endauth
                </div>
                <p class="text-lg mb-4">{{ $user->bio ?? 'No bio available' }}</p>
 

@@ -1,11 +1,19 @@
 <x-app-layout>
     <!-- Back Button -->
     <div class="flex justify-center mb-6">
-        <a href="{{ Auth::id() === $user->id ? route('dashboard') : route('users.show', $user) }}">
-            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 mt-3 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out">
-                Back
-            </button>
-        </a>
+        @if (Auth::check()) <!-- Check if the user is authenticated -->
+            <a href="{{ Auth::id() === $user->id ? route('dashboard') : route('users.show', $user->username) }}">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 mt-3 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+                    Back
+                </button>
+            </a>
+        @else
+            <a href="{{ url()->previous() }}"> <!-- Use previous URL for guest users -->
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 mt-3 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+                    Back
+                </button>
+            </a>
+        @endif
     </div>
     
     <!-- Title -->
