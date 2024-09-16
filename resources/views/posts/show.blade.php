@@ -30,7 +30,7 @@
         <!-- Post Section -->
         <div class="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 p-6 rounded-lg shadow-md mb-8">
             <h1 class="text-4xl font-bold mb-4">{{ $post->title }}</h1>
-            <span>posted: {{ $post->created_at->diffForHumans() }} by <a href="{{ Auth::user()->id === $post->user->id ? route('dashboard') : route('users.show', $post->user) }}" class="text-blue-500 hover:underline">{{ $post->user->name }}</a></span>
+            <span>posted: {{ $post->created_at->diffForHumans() }} by <a href="{{ Auth::user()->id === $post->user->id ? route('dashboard') : route('users.show', $post->user->username) }}" class="text-blue-500 hover:underline">{{ $post->user->name }}</a></span>
             <p class="text-lg mb-4"> {!! Str::markdown($post->body) !!} </p>
         </div>
 

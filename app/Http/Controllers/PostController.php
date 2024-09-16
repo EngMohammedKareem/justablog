@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Models\Post;
+use App\Notifications\NewLike;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
@@ -155,8 +156,8 @@ class PostController extends Controller
                 'post_id' => $post->id,
                 'user_id' => $userId
             ]);
+            $post->user->notify(new NewLike(Auth::user(), $post));
         }
-
         // Redirect back with a success message
         return redirect()->back();
     }

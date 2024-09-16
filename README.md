@@ -1,3 +1,19 @@
+## NOTIFICATIONS ARE FINALLY HERE !!!!
+
+I'm very excited and exhausted to announce that after learning more about laravel i was able to implement not only mail notifications but standard database notifications to improve the user experience i'm hoping
+
+-   get notified when someone likes any of your posts and click on the notification to navigate to that post
+
+-   get notified when someone leaves a new comment on one of your posts and as above, click on it to be taken to that post
+
+-   get notified when someone starts to follow you
+
+Check it out
+
+![image](https://github.com/user-attachments/assets/ace599f8-8a4d-4593-9560-bfe7de3436db)
+
+---
+
 ## 🎉 New Features: search users by username + flash messages + new navbar look + improved menu for mobile users
 
 I'm very excited to announce that my small side project is now shaping up very well and today i implemented new features including:

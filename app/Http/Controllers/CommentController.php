@@ -8,7 +8,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
-use function Pest\Laravel\post;
+use App\Notifications\NewComment;
 
 class CommentController extends Controller
 {
@@ -42,6 +42,7 @@ class CommentController extends Controller
             'body' => $request->body
         ]);
 
+        $post->user->notify(new NewComment(Auth::user(), $post));
         return redirect()->back()->withFragment('comments');
     }
 

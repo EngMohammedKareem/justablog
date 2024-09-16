@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewFollower;
 
 class UserController extends Controller
 {
@@ -21,6 +22,7 @@ class UserController extends Controller
             return redirect()->back();
         }
         Auth::user()->following()->attach($user->id);
+        $user->notify(new NewFollower(Auth::user()));
         return redirect()->back();
     }
 
@@ -53,5 +55,11 @@ class UserController extends Controller
     {
         $following =  $user->following()->get();
         return view('users.following', ['following' => $following, 'user' => $user]);
+    }
+
+    public function notifications()
+    {
+
+        return view('users.notifications');
     }
 }
