@@ -34,5 +34,8 @@
             flashMessage.remove();
         }, 3000);
     }
+    $(document).ready(function() {
+        alert("Hello");
+    })
 </script>
 </x-app-layout>

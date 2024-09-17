@@ -88,8 +88,9 @@
             <h2 class="text-3xl font-semibold mb-4">Comments ({{ $post->comments->count() }})</h2>
             @forelse($comments as $comment)
                 <div class="flex flex-col justify-center bg-gray-800 p-4 rounded-lg shadow-md mb-4">
+                    
                     <p class="text-md text-gray-300">{{ $comment->body }}</p>
-                    <p class="text-sm text-gray-500 mt-2">— {{ $comment->user->name }} on {{ $comment->created_at->format('F j, Y') }}</p>
+                    <p class="text-sm text-gray-500 mt-2">— {{ $comment->user->name }} on {{ $comment->created_at->diffForHumans() }}</p>
                     <div class="flex items-center justify-start space-x-3 m-3">
                         @can('update', $comment)
                         <a href="{{ route('posts.comments.edit', [$post, $comment]) }}">
@@ -111,7 +112,7 @@
                             @foreach($comment->replies as $reply)
                                 <div class="bg-gray-700 p-3 rounded-lg mb-3">
                                     <p class="text-md text-gray-300">{{ $reply->body }}</p>
-                                    <p class="text-sm text-gray-400 mt-1">— {{ $reply->user->name }} on {{ $reply->created_at->format('F j, Y') }}</p>
+                                    <p class="text-sm text-gray-400 mt-1">— {{ $reply->user->name }} on {{ $reply->created_at->diffForHumans() }}</p>
                                     <div class="flex items-center justify-start space-x-3 m-3">
                                         @can('update', $reply)
                                         <a href="{{ route('posts.comments.replies.edit', [$post, $comment, $reply]) }}">
