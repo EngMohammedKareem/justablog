@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                         {{ __('FEED') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('notifications')" :active="request()->routeIs('notifications')">
+                    <x-nav-link :href="route('notifications.index')" :active="request()->routeIs('notifications.index')">
                         {{ __('NOTIFICATIONS') }}
                     </x-nav-link>
                     <x-nav-link :href="route('users.search')" :active="request()->routeIs('users.search')">

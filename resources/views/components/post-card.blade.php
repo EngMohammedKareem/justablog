@@ -20,7 +20,7 @@
             <span class="text-md text-gray-400">{{ $post->comments->count() }} comments</span>
             @auth
                 <!-- Like Button -->
-                <form class="flex items-center" action="{{ route('posts.like', $post) }}" method="POST">
+                <form action="{{ route('posts.like', $post) }}" method="post" id="like-form">
                     @csrf
                     <button type="submit" class="{{ Auth::user()->likes->contains('post_id', $post->id) ? 'bg-red-500 hover:bg-red-700' : 'bg-blue-500 hover:bg-blue-700'}} text-white font-bold py-2 px-8 rounded-full flex items-center">
                         {{ Auth::user()->likes->contains('post_id', $post->id) ? 'Unlike' : 'Like' }}

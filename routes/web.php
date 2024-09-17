@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReplyController;
 use App\Models\User;
@@ -26,7 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/notifications', [UserController::class, 'notifications'])->name('notifications');
+    Route::get('/notifications', [NotificationsController::class, 'index'])->name('notifications.index');
+    Route::delete('/notifications', [NotificationsController::class, 'destroy'])->name('notifications.destroy');
 });
 Route::get('/users/{username}', [UserController::class, 'show'])->name('users.show');
 Route::get('/users/{user}/followers', [UserController::class, 'followers'])->name('users.followers');

@@ -173,11 +173,15 @@
         </div>
     </div>
     <script>
-        const flashMessage = document.querySelector('.flash_message');
-        if (flashMessage) {
-            setTimeout(() => {
-                flashMessage.remove();
-            }, 3000);
-        }
-    </script>
+        $(document).ready(function() {
+            const $flashMessage = $('.flash_message');
+            if ($flashMessage.length) {
+                setTimeout(() => {
+                    $flashMessage.fadeOut(1000, function() {
+                        $(this).remove();
+                    });
+                }, 3000);
+            }
+        });
+        </script>
 </x-app-layout>

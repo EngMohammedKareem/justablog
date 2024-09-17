@@ -156,7 +156,9 @@ class PostController extends Controller
                 'post_id' => $post->id,
                 'user_id' => $userId
             ]);
-            $post->user->notify(new NewLike(Auth::user(), $post));
+            if (Auth::user()->id != $post->user_id) {
+                $post->user->notify(new NewLike(Auth::user(), $post));
+            }
         }
         // Redirect back with a success message
         return redirect()->back();

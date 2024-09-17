@@ -28,14 +28,15 @@
     </div>
 @endif 
 <script>
-    const flashMessage = document.querySelector('.flash_message');
-    if (flashMessage) {
-        setTimeout(() => {
-            flashMessage.remove();
-        }, 3000);
-    }
     $(document).ready(function() {
-        alert("Hello");
-    })
-</script>
+        const $flashMessage = $('.flash_message');
+        if ($flashMessage.length) {
+            setTimeout(() => {
+                $flashMessage.fadeOut(1000, function() {
+                    $(this).remove();
+                });
+            }, 3000);
+        }
+    });
+    </script>
 </x-app-layout>

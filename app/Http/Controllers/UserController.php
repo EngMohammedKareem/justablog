@@ -56,10 +56,4 @@ class UserController extends Controller
         $following =  $user->following()->get();
         return view('users.following', ['following' => $following, 'user' => $user]);
     }
-
-    public function notifications()
-    {
-
-        return view('users.notifications');
-    }
 }
