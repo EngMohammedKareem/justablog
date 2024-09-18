@@ -10,7 +10,7 @@ I'm very excited and exhausted to announce that after learning more about larave
 
 Check it out
 
-![image](https://media.discordapp.net/attachments/1251877367803150371/1285361842784440361/image.png?ex=66eaa6c0&is=66e95540&hm=56f04ac3827a4672a2b8a40b2d235aecd7f5c38de8f2b95742d5dbabcad4f43c&=&format=webp&quality=lossless&width=1393&height=657)
+![image](https://media.discordapp.net/attachments/1251877367803150371/1285738211834069022/image.png?ex=66eb5c85&is=66ea0b05&hm=b8527e82d343111abe3ad2ea8132850d104c3eb6ee2c697fa0dea85c5b07bbb0&=&format=webp&quality=lossless&width=1393&height=482)
 
 ---
 
