@@ -1,4 +1,7 @@
 <x-app-layout>
+    @php
+        auth()->user()->unreadNotifications->markAsRead();
+    @endphp
     <h1 class="text-center text-white text-bold text-3xl m-3">Notifications</h1>
     <div class="flex justify-center items-start">
     @if($notifications->count() > 0)

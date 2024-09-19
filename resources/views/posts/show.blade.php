@@ -82,7 +82,22 @@
             </form>
             @endif
         </div>
-        
+        <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-2">
+            <h2 class="text-3xl font-semibold mb-4">Leave a Comment</h2>
+            <form action="{{ route('posts.comments.store', $post) }}" method="post">
+                @csrf
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <div class="mb-4">
+                    <textarea name="body" rows="4" class="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Your comment..."></textarea>
+                    @error('body')
+                        <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+                <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white font-semibold rounded-lg shadow-md hover:from-blue-400 hover:to-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300 ease-in">
+                    Post Comment
+                </button>
+            </form>
+        </div>
         <!-- Comments Section -->
         <div class="mb-8">
             <h2 class="text-3xl font-semibold mb-4">Comments ({{ $post->comments->count() }})</h2>
@@ -105,7 +120,7 @@
                         </form>
                         @endcan
                     </div>
-
+                    
                     <!-- Replies Section -->
                     @if($comment->replies->count() > 0)
                         <div class="mt-4 pl-6 border-l-2 border-gray-700">
@@ -155,22 +170,7 @@
         </div>
 
         <!-- Comment Form Section -->
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 class="text-3xl font-semibold mb-4">Leave a Comment</h2>
-            <form action="{{ route('posts.comments.store', $post) }}" method="post">
-                @csrf
-                <input type="hidden" name="post_id" value="{{ $post->id }}">
-                <div class="mb-4">
-                    <textarea name="body" rows="4" class="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Your comment..."></textarea>
-                    @error('body')
-                        <p class="text-red-500 mt-2 text-sm">{{ $message }}</p>
-                    @enderror
-                </div>
-                <button type="submit" class="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white font-semibold rounded-lg shadow-md hover:from-blue-400 hover:to-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors duration-300 ease-in">
-                    Post Comment
-                </button>
-            </form>
-        </div>
+       
     </div>
     <script>
         $(document).ready(function() {

@@ -15,9 +15,6 @@
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                         {{ __('FEED') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('notifications.index')" :active="request()->routeIs('notifications.index')">
-                        {{ __('NOTIFICATIONS') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('users.search')" :active="request()->routeIs('users.search')">
                         {{ __('FIND PEOPLE') }}
                     </x-nav-link>
@@ -30,6 +27,12 @@
             <!-- Authenticated User Navigation -->
             @auth
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <a href="{{ route('notifications.index') }}" class="flex items-center text-bold {{ auth()->user()->unreadNotifications()->count() > 0 ? 'text-red-500' : 'text-white' }} me-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                        <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="ms-1">{{ Auth::user()->unreadNotifications()->count() }}</span>
+                </a>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">

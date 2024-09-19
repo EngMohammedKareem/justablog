@@ -33,6 +33,7 @@
                      <a href="{{ route('users.following', Auth::user()) }}">Following: {{ $followingCount }}</a>
                     </div>
                 </div>
+                <span class="font-italic text-sm">Joined: {{ Auth::user()->created_at->diffForHumans() }}</span>
              </div>
           </div>
        </div>

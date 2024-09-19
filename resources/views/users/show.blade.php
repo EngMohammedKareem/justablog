@@ -49,22 +49,25 @@
                <!-- Statistics -->
                <div class="flex flex-col items-center gap-3 mb-8">
                    <div class="text-lg font-semibold">Posts: {{ $posts->count() }}</div>
-                   <div class="flex gap-3">
+                   <div class="flex flex-col gap-3">
+                    <div class="flex gap-3">
                        <div class="text-lg font-semibold">
                            <a href="{{ route('users.followers', $user) }}">Followers: {{ $followersCount }}</a>   
                        </div>
                        <div class="text-lg font-semibold">
                            <a href="{{ route('users.following', $user) }}">Following: {{ $followingCount }}</a>
                        </div>
+                    </div>
+                    <div class="text-sm font-italic">Joined: {{ $user->created_at->diffForHumans() }}</div>
                    </div>
                </div>
            </div>
        </div>
 
        <!-- Posts List -->
-       <div class="flex flex-col gap-4 max-w-4xl mx-auto">
+       <div class="flex flex-col gap-4 max-w-4xl mx-auto mt-4">
            @if($user->posts->count() === 0) 
-               <p class="text-center">🌟 No posts yet! 🌟</p>
+               <p class="text-center font-bold text-xl">🌟 No posts yet! 🌟</p>
            @endif
            @foreach($posts as $post)
                <x-op-post-card :post="$post" />
