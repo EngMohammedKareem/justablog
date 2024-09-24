@@ -39,7 +39,7 @@ class UserController extends Controller
     public function search(Request $request)
     {
         if (request('username')) {
-            $users = User::where('username', 'like', '%' . request('username') . '%')->get();
+            $users = User::where('username', 'like', '%' . request('username') . '%')->paginate(10);
             return view('users.search', ['users' => $users]);
         }
         return view('users.search');

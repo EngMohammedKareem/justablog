@@ -6,7 +6,7 @@
    @endphp
 
    <div class="bg-gray-900 text-white py-12 px-6">
-       <div class="max-w-4xl mx-auto flex flex-col items-center">
+       <div class="flex flex-col items-center">
            <!-- Profile Header -->
            <div class="bg-gray-800 rounded-full mb-6">
             <img src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y'}}" alt="Profile Picture" class="w-32 h-32 rounded-full object-cover">
