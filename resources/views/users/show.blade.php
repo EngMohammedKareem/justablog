@@ -70,7 +70,7 @@
                <p class="text-center font-bold text-xl">🌟 No posts yet! 🌟</p>
            @endif
            @foreach($posts as $post)
-               <x-op-post-card :post="$post" />
+               <x-post-card :post="$post" />
            @endforeach
        </div>
    </div>

@@ -16,14 +16,10 @@
         </form>
     </div>
     @foreach($posts as $post)
-        @if(auth()->user()->id === $post->user_id)
-            <x-op-post-card :post="$post"/>
-        @else
-            <x-post-card :post="$post"/>
-        @endif
+        <x-post-card :post="$post"/>
     @endforeach
     @if($posts->hasPages())
-    <div class="p-3">
+    <div class="-3">
         {{ $posts->links() }}
     </div>
 @endif 

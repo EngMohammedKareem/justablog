@@ -1,10 +1,12 @@
 @props(['post'])
 
-<div class="relative flex flex-col justify-between items-start p-4 mx-auto bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-    <span class="font-medium text-white ">{{ $post->created_at->diffForHumans() }}</span>
-    <a href="{{ route('users.show', $post->user->username) }}" class=" text-gray-300 font-medium font-italic">
-        &#64;{{ $post->user->name }}
+<div class="flex flex-col justify-between items-start p-4 mx-auto bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+    <div class="flex justify-between w-full items-center">
+    <a href="{{ Auth::user()->id === $post->user_id ? route('dashboard') : route('users.show',$post->user->username) }}" class=" text-gray-300 font-medium font-italic">
+        {{ $post->user->name }} | &#64;{{ $post->user->username }}
     </a>
+    <span class="font-medium text-white ">{{ $post->created_at->diffForHumans() }}</span>
+    </div>
     <!-- Post Content -->
     <div class="flex flex-col mb-4 pt-4">
         <a href="{{ route('posts.show', $post) }}">

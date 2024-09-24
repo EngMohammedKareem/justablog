@@ -49,7 +49,7 @@
             </div>
          @endif
           @foreach($posts as $post)
-             <x-op-post-card :post="$post" />
+             <x-post-card :post="$post" />
           @endforeach
        </div>
     </div>
