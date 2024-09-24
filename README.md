@@ -10,7 +10,7 @@ I'm very excited and exhausted to announce that after learning more about larave
 
 Check it out
 
-![image](https://media.discordapp.net/attachments/1251877367803150371/1285738211834069022/image.png?ex=66eb5c85&is=66ea0b05&hm=b8527e82d343111abe3ad2ea8132850d104c3eb6ee2c697fa0dea85c5b07bbb0&=&format=webp&quality=lossless&width=1393&height=482)
+![image](https://github.com/user-attachments/assets/00b69d3e-d65d-484c-9b50-7897f04973d5)
 
 ---
 
@@ -24,11 +24,9 @@ I'm very excited to announce that my small side project is now shaping up very w
 -   slightly improved profiles now
 -   fixed a seriously annoying bug that was preventing the search form from functioning properly
 
-![image](https://media.discordapp.net/attachments/960898967116341251/1281348530698715156/image.png?ex=66db6450&is=66da12d0&hm=ca746a013c451e3d4118176f56f5b72428eedd26925e872768bc822c07097e6d&=&format=webp&quality=lossless&width=1393&height=613)
+![image](https://github.com/user-attachments/assets/b19390cb-5a77-4ac0-bfe2-1de856f09605)
 
-![](https://media.discordapp.net/attachments/960898967116341251/1281386750010200156/image.png?ex=66db87e8&is=66da3668&hm=fa79f237e7906e91e2902bab3e10136242b17b25034fdf4d40dbbb3323d1dda0&=&format=webp&quality=lossless&width=1393&height=298)
-
-![](https://media.discordapp.net/attachments/960898967116341251/1281387079514980455/image.png?ex=66db8836&is=66da36b6&hm=ccdd475d1f973ae512285c044937a72e1ec2ddae0d9687a2a743dcd1a611fb67&=&format=webp&quality=lossless&width=974&height=711)
+![image](https://github.com/user-attachments/assets/03da084d-cbbe-488b-a8c1-bb88568f995b)
 
 🚀 Key Benefits
 
@@ -52,14 +50,9 @@ I'm extremely proud and excited to introduce two fantastic new features that wil
 
 🔹 Follow/Unfollow Feature: Stay updated with your favorite users by following them. Easily manage your connections with the new unfollow option, so you’re always in control of your feed! 🔄🔍
 
-![image](https://cdn.discordapp.com/attachments/1251877367803150371/1280484448302927912/image.png?ex=66d83f92&is=66d6ee12&hm=c545cd6c64868b06cc8159ff2a3647d63b783904f2173288f4558dcf654e5bc6&)
-![image](https://cdn.discordapp.com/attachments/1251877367803150371/1280484448567165081/image.png?ex=66d83f92&is=66d6ee12&hm=d62c9068500187888a93f46232295abebf1634a218e5974ae9d6292e62de9918&)
+![image](https://github.com/user-attachments/assets/5939ccfe-c56c-45c2-b5e9-a870f65ea117)
 
-![image](https://cdn.discordapp.com/attachments/960898967116341251/1280499832401825812/image.png?ex=66d84de6&is=66d6fc66&hm=f1c5b260e64688df08bcccbc15c3198f309bdf3234504d3e3c8755bff197e265&)
-
-![image](https://cdn.discordapp.com/attachments/960898967116341251/1280499991202500648/image.png?ex=66d84e0c&is=66d6fc8c&hm=e4adf0055b6dabd3b6fee3e36abc3f24d9adac8940e1ff5a4710eeccf10b4766&)
-
-![image](https://cdn.discordapp.com/attachments/960898967116341251/1280500369348362240/image.png?ex=66d84e66&is=66d6fce6&hm=1c18a3f7ff850f0dc58555523643e5c233fd6adf7dba4c143e7cf20195024396&)
+![image](https://github.com/user-attachments/assets/4f516bcd-c2a5-4469-9c92-e898871c36d7)
 
 But i need your help! 🙌
 
