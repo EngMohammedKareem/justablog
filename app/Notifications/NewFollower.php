@@ -50,10 +50,10 @@ class NewFollower extends Notification
     public function toArray(object $notifiable): array
     {
         return [
+            "username" => $this->user->username,
             "message" => "{$this->user->username} started following you",
             "profile_picture" => $this->user->profile_picture,
             'interaction' => 'follow',
-            "username" => $this->user->username
         ];
     }
 }

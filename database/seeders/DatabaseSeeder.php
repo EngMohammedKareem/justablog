@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        $user = User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
-        Post::factory(30)->has(Comment::factory(15))->for($user)->create();
+        $moo = User::where('username', 'moo')->first();
+        $followers = User::factory()
+            ->hasPosts(10)
+            ->count(1000)
+            ->create();
+        foreach ($followers as $follower) {
+            $follower->following()->attach($moo->id);
+        }
     }
 }

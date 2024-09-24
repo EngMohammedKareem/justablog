@@ -54,6 +54,7 @@ class NewLike extends Notification
     public function toArray(object $notifiable): array
     {
         return [
+            'username' => $this->user->username,
             "message" => "{$this->user->username} liked your post {$this->post->title}",
             "post_url" => url('/posts/' . $this->post->id), // Add the post URL here
             'profile_picture' => $this->user->profile_picture,

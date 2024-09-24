@@ -1,13 +1,10 @@
 @props(['post'])
 
-<div class="relative flex flex-col justify-between items-start p-6 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
-    <!-- Profile Picture in the Top Right Corner -->
-    <a href="{{ route('users.show', $post->user->username) }}" class="absolute top-4 right-4">
-        <img src="{{ $post->user->profile_picture ? asset('storage/' . $post->user->profile_picture) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" 
-             alt="Profile Picture" 
-             class="w-16 h-16 rounded-full">
+<div class="relative flex flex-col justify-between items-start p-4 mx-auto bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+    <span class="font-medium text-white ">{{ $post->created_at->diffForHumans() }}</span>
+    <a href="{{ route('users.show', $post->user->username) }}" class=" text-gray-300 font-medium font-italic">
+        &#64;{{ $post->user->name }}
     </a>
-
     <!-- Post Content -->
     <div class="flex flex-col mb-4 pt-4">
         <a href="{{ route('posts.show', $post) }}">
@@ -28,12 +25,5 @@
                 </form>
             @endauth
         </div>
-        
-        <span class="text-sm text-gray-400">
-            posted: {{ $post->created_at->diffForHumans() }} by 
-            <a href="{{ route('users.show', $post->user) }}" class="text-blue-500 hover:underline">
-                {{ $post->user->name }}
-            </a>
-        </span>
     </div>
 </div>

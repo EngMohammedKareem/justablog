@@ -15,7 +15,7 @@
     @forelse($notifications as $notification)
             <div class="p-6 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 border border-gray-600 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out text-white mx-12 my-4">
             <div class="flex items-center justify-between">
-                <img src="{{ asset('storage/' . $notification->data['profile_picture']) }}" alt="" class="w-8 h-8 rounded-full mr-4">
+                <img src="{{ $notification->data['profile_picture'] ? asset('storage/' . $notification->data['profile_picture']) : 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y' }}" alt="" class="w-8 h-8 rounded-full mr-4">
                 @if($notification->data['interaction'] === 'follow')
                 <a href="{{ route('users.show', ['username' => $notification->data['username']]) }}" class="flex-1 text-white hover:underline">
                     {{ $notification->data['message'] }}

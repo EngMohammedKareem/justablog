@@ -23,7 +23,7 @@
         @endif
     @endforeach
     @if($posts->hasPages())
-    <div class="m-3">
+    <div class="p-3">
         {{ $posts->links() }}
     </div>
 @endif 
